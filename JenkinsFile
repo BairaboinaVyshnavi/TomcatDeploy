@@ -1,6 +1,6 @@
 node{
   stage('SCM Checkout'){
-    git 'https://github.com/Nayeem123/java-hello-world-with-maven'
+    git 'https://github.com/BairaboinaVyshnavi/Helloworld.git'
   }
   stage('compile-package'){
     // Get maven home path
@@ -12,7 +12,7 @@ node{
   stage('Deploy to Tomcat'){
 
     sshagent(['tomcat-dev']) {
-    sh 'scp -o StrictHostKeyChecking=no target/*.jar ec2-user@172.31.6.50:/opt/apache-tomcat-9.0.74/lib'
+    sh 'scp -o StrictHostKeyChecking=no target/*.jar ec2-user@172.31.6.50://opt/apache-maven-3.6.3/lib'
 }
   }
 }
